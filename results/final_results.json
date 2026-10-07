@@ -1,0 +1,46 @@
+{
+  "note": "Transcribed from the printed outputs of notebooks/ecg_colab_notebook.ipynb (4 decimals where printed).",
+  "dataset": {
+    "name": "PTB-XL 1.0.3, 100 Hz",
+    "records_used": 21388,
+    "train_records": 17084,
+    "val_records": 2146,
+    "test_records": 2158,
+    "classes": ["CD", "HYP", "MI", "NORM", "STTC"],
+    "records_with_more_than_one_label_pct_train": 24.2
+  },
+  "baseline_xgboost": {
+    "val": {
+      "macro_auroc": 0.836,
+      "macro_f1": 0.539,
+      "per_class_auroc": {"CD": 0.855, "HYP": 0.736, "MI": 0.827, "NORM": 0.891, "STTC": 0.870}
+    },
+    "test": {"macro_auroc": 0.8343, "macro_f1": 0.5388}
+  },
+  "cnn": {
+    "parameters": 154917,
+    "class_weights": {"CD": 3.37, "HYP": 7.06, "MI": 2.90, "NORM": 1.25, "STTC": 3.08},
+    "epochs_run": 20,
+    "best_epoch": 12,
+    "best_val_auroc": 0.9129,
+    "test": {
+      "macro_auroc": 0.9102,
+      "macro_f1": 0.6880,
+      "per_class_auroc": {"CD": 0.9144, "HYP": 0.8356, "MI": 0.9263, "NORM": 0.9415, "STTC": 0.9330}
+    }
+  },
+  "lead_ablation": {
+    "I":   {"ablated_auroc": 0.9005, "auroc_drop": 0.0097},
+    "II":  {"ablated_auroc": 0.8995, "auroc_drop": 0.0107},
+    "III": {"ablated_auroc": 0.9074, "auroc_drop": 0.0028},
+    "AVR": {"ablated_auroc": 0.9004, "auroc_drop": 0.0098},
+    "AVL": {"ablated_auroc": 0.9054, "auroc_drop": 0.0048},
+    "AVF": {"ablated_auroc": 0.8995, "auroc_drop": 0.0106},
+    "V1":  {"ablated_auroc": 0.8920, "auroc_drop": 0.0182},
+    "V2":  {"ablated_auroc": 0.9055, "auroc_drop": 0.0047},
+    "V3":  {"ablated_auroc": 0.9059, "auroc_drop": 0.0043},
+    "V4":  {"ablated_auroc": 0.9085, "auroc_drop": 0.0017},
+    "V5":  {"ablated_auroc": 0.9010, "auroc_drop": 0.0092},
+    "V6":  {"ablated_auroc": 0.8958, "auroc_drop": 0.0144}
+  }
+}
