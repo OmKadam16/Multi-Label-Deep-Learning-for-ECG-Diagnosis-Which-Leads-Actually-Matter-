@@ -1,5 +1,7 @@
 # Multi-Label Deep Learning for ECG Diagnosis: Which Leads Actually Matter?
 
+![ECG lead importance overview](docs/bento.png)
+
 A 1D convolutional neural network that reads raw 12-lead ECG signals and flags several heart conditions at the same time, plus a lead-ablation experiment that checks which of the 12 leads the model leans on most.
 
 Built by Om Kadam (Cypress College) for undergraduate research conferences (SCCUR 2026 and NCUR 2027).
